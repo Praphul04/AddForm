@@ -1,11 +1,11 @@
 function store(){ //stores items in the localStorage
-  var brand = document.getElementById('name').value;
-  var price = document.getElementById('phn').value;
+  var name = document.getElementById('name').value;
+  var phoneNumber = document.getElementById('phn').value;
   var key = document.getElementById('key').value;
 
   const deatails = {
       name: name,
-      price: price,
+      phoneNumber: phoneNumber,
   }
 
   window.localStorage.setItem(key,JSON.stringify(deatails));  
@@ -23,20 +23,20 @@ function retrieveRecords(){ //retrieves items in the localStorage
   element.appendChild(paragraph);
 }
 
-// function removeItem(){ //deletes item from localStorage
-//     var key = document.getElementById('removeKey').value; //gets key from user
-//     localStorage.removeItem(key) //passes key to the removeItem method
-//     console.log("remove items");
-// }
+function removeItem(){ //deletes item from localStorage
+    var key = document.getElementById('removeKey').value; //gets key from user
+    localStorage.removeItem(key) //passes key to the removeItem method
+    console.log("remove items");
+}
 
-// function clearStorage(){ //clears the entire localStorage
-//     localStorage.clear()
-//     console.log("clear records");
-// }
+function clearStorage(){ //clears the entire localStorage
+    localStorage.clear()
+    console.log("clear records");
+}
 
 window.onload =function(){ //ensures the page is loaded before functions are executed.
   document.getElementById("detailsForm").onsubmit = store
-  // document.getElementById("clearButton").onclick = clearStorage
-  // document.getElementById("removeButton").onclick = removeItem
+  document.getElementById("clearButton").onclick = clearStorage
+  document.getElementById("removeButton").onclick = removeItem
   document.getElementById("retrieveButton").onclick = retrieveRecords
 }
